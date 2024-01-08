@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DeliveryAll.Models.ViewModels
 {
-    public class CartVM
-    {
-        public IEnumerable<Cart> CartList { get; set; }
-        public OrderHeader OrderHeader { get; set; }
-    }
+	public class OrderVM
+	{
+		public OrderHeader OrderHeader { get; set; }
+		public IEnumerable<OrderDetail> OrderDetail { get; set; }
+	}
 }

@@ -8,6 +8,8 @@ namespace DeliveryAll.Repository.IRepository
 		IFoodItemRepository FoodItem { get; }
 		ICartRepository Cart { get; }
         IApplicationUserRepository ApplicationUser { get; }
+		IOrderDetailRepository OrderDetail { get; }
+		IOrderHeaderRepository OrderHeader { get; }
         void Save();
-	}
+    }
 }

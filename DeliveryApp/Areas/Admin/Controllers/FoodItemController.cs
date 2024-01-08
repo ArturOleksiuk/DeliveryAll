@@ -108,18 +108,18 @@ namespace DeliveryApp.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-            var productToBeDeleted = _unitOfWork.FoodItem.Get(u => u.Id == id);
-            if (productToBeDeleted == null) 
+            var foodItemToBeDeleted = _unitOfWork.FoodItem.Get(u => u.Id == id);
+            if (foodItemToBeDeleted == null) 
             {
                 return Json(new { success = false, message = "Error while deleting" });
             }
             var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, 
-                productToBeDeleted.ImageUrl.TrimStart('\\'));
+                foodItemToBeDeleted.ImageUrl.TrimStart('\\'));
             if (System.IO.File.Exists(oldImagePath))
             {
                 System.IO.File.Delete(oldImagePath);
             }
-            _unitOfWork.FoodItem.Remove(productToBeDeleted);
+            _unitOfWork.FoodItem.Remove(foodItemToBeDeleted);
             _unitOfWork.Save();
             return Json(new {success = true, message = "Delete Succesful"});
             

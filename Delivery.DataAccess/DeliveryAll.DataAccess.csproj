@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Delivery.Models\DeliveryAll.Models.csproj" />
+    <ProjectReference Include="..\Delivery.Utility\DeliveryAll.Utility.csproj" />
   </ItemGroup>
 
 </Project>

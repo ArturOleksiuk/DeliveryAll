@@ -1,6 +1,8 @@
 ﻿using DeliveryAll.Models;
 using DeliveryAll.Repository.IRepository;
+using DeliveryAll.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using System.Diagnostics;
@@ -22,6 +24,7 @@ namespace DeliveryAll.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+            
             IEnumerable<FoodItem> foodItemList = _unitOfWork.FoodItem.GetAll(includeProperties: "category");
             return View(foodItemList);
         }
@@ -50,13 +53,16 @@ namespace DeliveryAll.Areas.Customer.Controllers
             {
                 cartFromDb.Count += cart.Count;
                 _unitOfWork.Cart.Update(cartFromDb);
+                _unitOfWork.Save();
             }
             else
             {
                 _unitOfWork.Cart.Add(cart);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.Cart.GetAll(u => u.ApplicationUserId == userId).Count());
             }
 
-            _unitOfWork.Save();
+            TempData["Success"] = "Cart updated successfully";
             return RedirectToAction(nameof(Index));
         }
         public IActionResult Privacy()
