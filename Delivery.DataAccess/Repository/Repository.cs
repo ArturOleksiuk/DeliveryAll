@@ -1,11 +1,8 @@
 ﻿using DeliveryAll.DataAccess.Data;
 using DeliveryAll.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
-=======
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
 
 namespace DeliveryAll.DataAccess.Repository
 {
@@ -36,7 +33,6 @@ namespace DeliveryAll.DataAccess.Repository
 			dbSet.RemoveRange(entity);
 		}
 
-<<<<<<< HEAD
 		public T Get(Expression<Func<T, bool>> filter, string? includeProperties, bool tracked = false)
 		{
 			IQueryable<T> query;
@@ -68,19 +64,6 @@ namespace DeliveryAll.DataAccess.Repository
                 query = query.Where(filter);
             }
             if (!string.IsNullOrEmpty(includeProperties))
-=======
-		public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includeProperties = null)
-		{
-			IQueryable<T> query = dbSet;
-			query = query.Where(filter);
-			return query.FirstOrDefault();
-		}
-
-		public IEnumerable<T> GetAll(string? includeProperties = null)
-		{
-			IQueryable<T> query = dbSet;
-			if(!string.IsNullOrEmpty(includeProperties))
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
 			{
 				foreach(var includeProp in includeProperties
 					.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))

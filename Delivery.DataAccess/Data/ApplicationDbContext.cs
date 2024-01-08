@@ -12,10 +12,7 @@ namespace DeliveryAll.DataAccess.Data
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<FoodItem> FoodItems { get; set; }
-<<<<<<< HEAD
         public DbSet<Cart> Carts { get; set; }
-=======
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

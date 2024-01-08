@@ -10,7 +10,6 @@ namespace DeliveryAll.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
-
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUnitOfWork _unitOfWork;
@@ -26,7 +25,6 @@ namespace DeliveryAll.Areas.Customer.Controllers
             IEnumerable<FoodItem> foodItemList = _unitOfWork.FoodItem.GetAll(includeProperties: "category");
             return View(foodItemList);
         }
-
         public IActionResult Details(int foodItemId)
         {
             Cart cart = new()
@@ -61,8 +59,7 @@ namespace DeliveryAll.Areas.Customer.Controllers
             _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
-
-		public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }
