@@ -22,7 +22,6 @@ namespace DeliveryAll.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-<<<<<<< HEAD
             modelBuilder.Entity("DeliveryAll.Models.Cart", b =>
                 {
                     b.Property<int>("Id")
@@ -53,8 +52,6 @@ namespace DeliveryAll.DataAccess.Migrations
                     b.ToTable("Carts");
                 });
 
-=======
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
             modelBuilder.Entity("DeliveryAll.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -311,19 +308,10 @@ namespace DeliveryAll.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-<<<<<<< HEAD
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
                         .HasColumnType("nvarchar(450)");
-=======
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -360,19 +348,10 @@ namespace DeliveryAll.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-<<<<<<< HEAD
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
-=======
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -399,7 +378,6 @@ namespace DeliveryAll.DataAccess.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("DeliveryAll.Models.Cart", b =>
                 {
                     b.HasOne("DeliveryAll.Models.ApplicationUser", "ApplicationUser")
@@ -417,8 +395,6 @@ namespace DeliveryAll.DataAccess.Migrations
                     b.Navigation("FoodItem");
                 });
 
-=======
->>>>>>> 08c37c47e8ee476df2228b135d7d7a33a96f5a3b
             modelBuilder.Entity("DeliveryAll.Models.FoodItem", b =>
                 {
                     b.HasOne("DeliveryAll.Models.Category", "category")
