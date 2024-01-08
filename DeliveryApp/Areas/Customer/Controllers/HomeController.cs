@@ -22,9 +22,15 @@ namespace DeliveryAll.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult Menu()
+        {
             IEnumerable<FoodItem> foodItemList = _unitOfWork.FoodItem.GetAll(includeProperties: "category");
             return View(foodItemList);
         }
+
         public IActionResult Details(int foodItemId)
         {
             Cart cart = new()

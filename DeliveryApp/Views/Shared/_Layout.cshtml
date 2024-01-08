@@ -24,9 +24,6 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area ="Customer" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" asp-area ="Customer" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @if(User.IsInRole(SD.Role_Admin))
@@ -45,6 +42,9 @@
                                 </ul>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Menu">Menu</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
                                 <i class="bi bi-cart"></i> &nbsp;
