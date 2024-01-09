@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliveryAll.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240108140447_AddCourierName")]
-    partial class AddCourierName
+    [Migration("20240109164053_AddAllChanges")]
+    partial class AddAllChanges
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,19 +80,13 @@ namespace DeliveryAll.DataAccess.Migrations
                         {
                             Id = 1,
                             DisplayOrder = 1,
-                            Name = "Action"
+                            Name = "Pizza"
                         },
                         new
                         {
                             Id = 2,
                             DisplayOrder = 2,
-                            Name = "Product"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DisplayOrder = 3,
-                            Name = "Prod"
+                            Name = "Drinks"
                         });
                 });
 
@@ -133,28 +127,118 @@ namespace DeliveryAll.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            Description = "Classic pizza with tomato, mozzarella, and basil.",
+                            Description = "Signature sauce, mozzarella, marinated chicken, pineapple, mushrooms, tomatoes",
                             ImageUrl = "",
-                            Name = "Margherita Pizza",
-                            Price = 123.98999999999999
+                            Name = "PIZZA \"HAWAIIAN\" 490 G",
+                            Price = 149.0
                         },
                         new
                         {
                             Id = 2,
-                            CategoryId = 2,
-                            Description = "Italian pasta with meat sauce.",
+                            CategoryId = 1,
+                            Description = "Cream, mozzarella, brie, parmesan cheese",
                             ImageUrl = "",
-                            Name = "Spaghetti Bolognese",
-                            Price = 69.989999999999995
+                            Name = "PIZZA \"CHEESE\" 400 G",
+                            Price = 149.0
                         },
                         new
                         {
                             Id = 3,
-                            CategoryId = 3,
-                            Description = "Fresh salad with romaine lettuce, croutons, and Caesar dressing.",
+                            CategoryId = 1,
+                            Description = "Barbecue sauce, Mozzarella cheese, hunting sausages, pickled cucumber, french fries, ketchup",
                             ImageUrl = "",
-                            Name = "Caesar Salad",
-                            Price = 7.4900000000000002
+                            Name = "PIZZA \"BARBECUE\" 550G",
+                            Price = 159.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 1,
+                            Description = "Cream Sauce, mozzarella, ham, bacon, parmesan cheese, egg yolk",
+                            ImageUrl = "",
+                            Name = "PIZZA \"CARBONARA\" 420 G",
+                            Price = 149.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 1,
+                            Description = "Signature sauce, mozzarella, tomatoes",
+                            ImageUrl = "",
+                            Name = "PIZZA \"MARGHERITA\" 380 G",
+                            Price = 120.0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 1,
+                            Description = "Soy BBQ, mozzarella, ham, bacon, hunting sausages, onions, tomatoes",
+                            ImageUrl = "",
+                            Name = "PIZZA \"MEAT\" 530 G",
+                            Price = 150.0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 1,
+                            Description = "Signature sauce, mozzarella, pepperoni, tomatoes",
+                            ImageUrl = "",
+                            Name = "PIZZA \"PEPPERONI\" 450 G",
+                            Price = 179.0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 2,
+                            Description = "0,5l",
+                            ImageUrl = "",
+                            Name = "FANTA",
+                            Price = 23.0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 2,
+                            Description = "0,5l",
+                            ImageUrl = "",
+                            Name = "SPRITE",
+                            Price = 23.0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 2,
+                            Description = "0,5l",
+                            ImageUrl = "",
+                            Name = "COCA COLA",
+                            Price = 23.0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 2,
+                            Description = "1l",
+                            ImageUrl = "",
+                            Name = "APPLE JUICE",
+                            Price = 62.0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 2,
+                            Description = "1l",
+                            ImageUrl = "",
+                            Name = "CHERRY JUICE",
+                            Price = 62.0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoryId = 2,
+                            Description = "1l",
+                            ImageUrl = "",
+                            Name = "TOMATO JUICE",
+                            Price = 62.0
                         });
                 });
 
@@ -203,8 +287,11 @@ namespace DeliveryAll.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateOfPick")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CourierName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DateOfPick")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -238,9 +325,6 @@ namespace DeliveryAll.DataAccess.Migrations
                     b.Property<string>("StreetAdress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("TimeOfPick")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

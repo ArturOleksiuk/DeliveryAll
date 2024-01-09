@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DeliveryAll.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AllMigration : Migration
+    public partial class AddAllChanges : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -184,10 +184,10 @@ namespace DeliveryAll.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TimeOfPick = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateOfPick = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfPick = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OrderTotal = table.Column<double>(type: "float", nullable: false),
                     OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CourierName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PaymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SessionId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PaymentIntentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -291,9 +291,8 @@ namespace DeliveryAll.DataAccess.Migrations
                 columns: new[] { "Id", "DisplayOrder", "Name" },
                 values: new object[,]
                 {
-                    { 1, 1, "Action" },
-                    { 2, 2, "Product" },
-                    { 3, 3, "Prod" }
+                    { 1, 1, "Pizza" },
+                    { 2, 2, "Drinks" }
                 });
 
             migrationBuilder.InsertData(
@@ -301,9 +300,19 @@ namespace DeliveryAll.DataAccess.Migrations
                 columns: new[] { "Id", "CategoryId", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, 1, "Classic pizza with tomato, mozzarella, and basil.", "", "Margherita Pizza", 123.98999999999999 },
-                    { 2, 2, "Italian pasta with meat sauce.", "", "Spaghetti Bolognese", 69.989999999999995 },
-                    { 3, 3, "Fresh salad with romaine lettuce, croutons, and Caesar dressing.", "", "Caesar Salad", 7.4900000000000002 }
+                    { 1, 1, "Signature sauce, mozzarella, marinated chicken, pineapple, mushrooms, tomatoes", "", "PIZZA \"HAWAIIAN\" 490 G", 149.0 },
+                    { 2, 1, "Cream, mozzarella, brie, parmesan cheese", "", "PIZZA \"CHEESE\" 400 G", 149.0 },
+                    { 3, 1, "Barbecue sauce, Mozzarella cheese, hunting sausages, pickled cucumber, french fries, ketchup", "", "PIZZA \"BARBECUE\" 550G", 159.0 },
+                    { 4, 1, "Cream Sauce, mozzarella, ham, bacon, parmesan cheese, egg yolk", "", "PIZZA \"CARBONARA\" 420 G", 149.0 },
+                    { 5, 1, "Signature sauce, mozzarella, tomatoes", "", "PIZZA \"MARGHERITA\" 380 G", 120.0 },
+                    { 6, 1, "Soy BBQ, mozzarella, ham, bacon, hunting sausages, onions, tomatoes", "", "PIZZA \"MEAT\" 530 G", 150.0 },
+                    { 7, 1, "Signature sauce, mozzarella, pepperoni, tomatoes", "", "PIZZA \"PEPPERONI\" 450 G", 179.0 },
+                    { 8, 2, "0,5l", "", "FANTA", 23.0 },
+                    { 9, 2, "0,5l", "", "SPRITE", 23.0 },
+                    { 10, 2, "0,5l", "", "COCA COLA", 23.0 },
+                    { 11, 2, "1l", "", "APPLE JUICE", 62.0 },
+                    { 12, 2, "1l", "", "CHERRY JUICE", 62.0 },
+                    { 13, 2, "1l", "", "TOMATO JUICE", 62.0 }
                 });
 
             migrationBuilder.CreateIndex(
