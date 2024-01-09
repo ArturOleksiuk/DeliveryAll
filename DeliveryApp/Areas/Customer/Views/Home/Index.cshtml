@@ -1,29 +1,117 @@
-﻿@model IEnumerable<FoodItem>
+﻿
 
-<div class="row pb-3">
-	@foreach (var foodItem in Model)
-	{
-		<div class="col-lg-3 col-sm-6">
-			<div class="row p-2">
-				<div class="col-12 p-1">
-					<div class="card border-0 p-3 shadow border-top border-5 rounded">
-						<img src="@foodItem.ImageUrl" class="card-img-top rounded"/>
-						<div class="card-body pb-0">
-							<div class="pl-1">
-								<p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@foodItem.Name</p>
-							</div>
-							<div class="pl-1">
-								<p class="card-title h6 opacity-75 text-dark text-uppercase">Price: @foodItem.Price ₴</p>
-							</div>
-						</div>
-						<div>
-							<a asp-action="Details" asp-route-foodItemId="@foodItem.Id" class="btn btn-dark bg-black border-0 form-control">
-								Details
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	}
-</div>
+<head>
+	<link rel="stylesheet" href="./css/MaiPage.css" />
+</head>
+
+
+
+<container class="main__container">
+    <main class="main">
+        <section class="section__top section">
+            <div class="section__top__block">
+                <h1 class="section__h">
+                    Швидка доставка твоїх улюблених <br> страв
+                </h1>
+            </div>
+
+            <div class="section__bottom__img__block section__img ds__sm">
+                <img class="section__bottom__img" src="./images/foodItem/35c97636-abc1-401b-97d8-b352bc666ac5.jpg" alt="Food foto">
+            </div>
+        </section>
+
+        <section class="section__bottom section">
+            <div class="section__bottom__text ds__sm">
+                <h2 class="section__h">
+                    Заробляйте гроші, доставляючи їжу
+                </h2>
+
+                <div class="section__bottom__list__block">
+                    <ul class="section__bottom__list">
+                        <li class="section__bottom__list__items">
+                            <h3 class="section__h3">
+                                Отримуй дохід без зайвих турбот!
+                            </h3>
+
+                            <p class="section__p">
+                                Реєструйтесь безплатно та отримуйте щотижневі виплати без прихованих комісій.
+                            </p>
+                        </li>
+
+                        <li class="section__bottom__list__items">
+                            <h3 class="section__h3">
+                                Доставляйте, коли захочете
+                            </h3>
+
+                            <p class="section__p">
+                                Вирішуйте самі, коли і як часто доставляти: у будні або вихідні, зранку або ввечері — все залежить тільки від вашого бажання.
+                            </p>
+                        </li>
+
+                        <li class="section__bottom__list__items">
+                            <h3 class="section__h3">
+                                Доставляй як завгодно
+                            </h3>
+
+                            <p class="section__p">
+                                На велосипеді, самокаті чи автомобілі — тільки ви обираєте, як здійснювати доставку!
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section__bottom__img__block section__img ds__sm">
+                <img class="section__bottom__img" src="https://ep01.epimg.net/economia/imagenes/2020/07/31/actualidad/1596221946_487839_1596222064_portadilla_normal.jpg" alt="Courier foto">
+            </div>
+        </section>
+
+        <section class="section__bottom section">
+            <div class="section__bottom__text ds__sm">
+                <h2 class="section__h">
+                    Обирай, замовляй та <br>відстежуй доставку у додатку
+                </h2>
+
+                <div class="section__bottom__list__block">
+                    <ul class="section__bottom__list">
+                        <li class="section__bottom__list__items">
+                            <h3 class="section__h3">
+                                Відкрий для себе місцеві ресторани
+                            </h3>
+
+                            <p class="section__p">
+                                Відкрий для себе страви з різних куточків світу – у нас ти знайдеш як популярні ресторани, так і приховані перлини.
+                            </p>
+                        </li>
+
+                        <li class="section__bottom__list__items">
+                            <h3 class="section__h3">
+                                Замовляй та сплачуй з легкістю
+                            </h3>
+
+                            <p class="section__p">
+                                Декілька кліків, і готово! Замовляй у пару кліків та сплачуй зручним способом — готівкою, карткою або за допомогою Балансу Bolt.
+                            </p>
+                        </li>
+
+                        <li class="section__bottom__list__items">
+                            <h3 class="section__h3">
+                                Відстежуй своє замовлення
+                            </h3>
+                            <p class="section__p">
+                                Спостерігай за своїм замовленням від приготування до самих дверей. Отримуй сповіщення про зміну статусу на кожному етапі.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section__bottom__img__block section__img ds__sm">
+                <img class="section__bottom__img" src="https://cdn.dribbble.com/users/690328/screenshots/15781881/food_app_4x.jpg" alt="Mobile app foto">
+            </div>
+        </section>
+    </main>
+</container>
+
+
+

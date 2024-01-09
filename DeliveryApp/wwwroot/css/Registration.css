@@ -1,0 +1,52 @@
+﻿body {
+}
+
+.input__box {
+    width: 100%;
+    height: 50px;
+}
+
+.form__input {
+    width: 100%;
+    outline: none;
+    background-color: #ebebed;
+    border: 2px solid var(--mainColorP);
+    border-radius: 40px;
+    padding: 20px;
+}
+
+    .form__input::placeholder {
+        padding: 10px;
+        color: var(--mainColorp);
+        opacity: 0.7;
+    }
+
+.btn_modal {
+    border-radius: 40px;
+}
+
+.form_registration {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.row {
+    justify-content: center;
+}
+
+.register_model {
+    background-color: var(--mainColor4);
+    color: var(--mainColorP);
+    border-radius: 40px;
+    box-shadow: 0px 0px 20px 0px rgb(181 181 181);
+    padding: 40px;
+}
+
+.login_link {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
