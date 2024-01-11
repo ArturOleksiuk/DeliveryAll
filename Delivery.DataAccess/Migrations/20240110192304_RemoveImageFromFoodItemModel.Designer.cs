@@ -4,6 +4,7 @@ using DeliveryAll.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliveryAll.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240110192304_RemoveImageFromFoodItemModel")]
+    partial class RemoveImageFromFoodItemModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,29 +214,15 @@ namespace DeliveryAll.DataAccess.Migrations
                             Description = "1l",
                             Name = "CHERRY JUICE",
                             Price = 62.0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoryId = 2,
+                            Description = "1l",
+                            Name = "TOMATO JUICE",
+                            Price = 62.0
                         });
-                });
-
-            modelBuilder.Entity("DeliveryAll.Models.FoodItemImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("FoodItemId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FoodItemId");
-
-                    b.ToTable("FoodItemImages");
                 });
 
             modelBuilder.Entity("DeliveryAll.Models.OrderDetail", b =>
@@ -578,17 +567,6 @@ namespace DeliveryAll.DataAccess.Migrations
                     b.Navigation("category");
                 });
 
-            modelBuilder.Entity("DeliveryAll.Models.FoodItemImage", b =>
-                {
-                    b.HasOne("DeliveryAll.Models.FoodItem", "FoodItem")
-                        .WithMany("FoodItemImages")
-                        .HasForeignKey("FoodItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FoodItem");
-                });
-
             modelBuilder.Entity("DeliveryAll.Models.OrderDetail", b =>
                 {
                     b.HasOne("DeliveryAll.Models.FoodItem", "foodItem")
@@ -668,11 +646,6 @@ namespace DeliveryAll.DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DeliveryAll.Models.FoodItem", b =>
-                {
-                    b.Navigation("FoodItemImages");
                 });
 #pragma warning restore 612, 618
         }

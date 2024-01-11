@@ -10,6 +10,7 @@ namespace DeliveryAll.Repository.IRepository
         IApplicationUserRepository ApplicationUser { get; }
 		IOrderDetailRepository OrderDetail { get; }
 		IOrderHeaderRepository OrderHeader { get; }
+		IFoodItemImageRepository FoodItemImage { get; }
         void Save();
     }
 }

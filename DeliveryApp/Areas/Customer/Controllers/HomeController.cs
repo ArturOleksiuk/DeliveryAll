@@ -29,14 +29,14 @@ namespace DeliveryAll.Areas.Customer.Controllers
 
         public IActionResult Menu()
         {
-            IEnumerable<FoodItem> foodItemList = _unitOfWork.FoodItem.GetAll(includeProperties: "category");
+            IEnumerable<FoodItem> foodItemList = _unitOfWork.FoodItem.GetAll(includeProperties: "category,FoodItemImages");
             return View(foodItemList);
         }
         public IActionResult Details(int foodItemId)
         {
             Cart cart = new()
             {
-                FoodItem = _unitOfWork.FoodItem.Get(u => u.Id == foodItemId, includeProperties: "category"),
+                FoodItem = _unitOfWork.FoodItem.Get(u => u.Id == foodItemId, includeProperties: "category,FoodItemImages"),
                 Count = 1,
                 FoodItemId = foodItemId
             };

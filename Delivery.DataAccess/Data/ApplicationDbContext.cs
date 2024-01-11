@@ -13,6 +13,7 @@ namespace DeliveryAll.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<FoodItem> FoodItems { get; set; }
         public DbSet<Cart> Carts { get; set; }
+		public DbSet<FoodItemImage> FoodItemImages { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<OrderHeader> OrderHeaders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
@@ -34,7 +35,6 @@ namespace DeliveryAll.DataAccess.Data
                     Description = "Signature sauce, mozzarella, marinated chicken, pineapple, mushrooms, tomatoes",
                     Price = 149,
 					CategoryId = 1,
-                    ImageUrl = ""
                 },
                 new FoodItem
                 {
@@ -43,7 +43,6 @@ namespace DeliveryAll.DataAccess.Data
                     Description = "Cream, mozzarella, brie, parmesan cheese",
                     Price = 149,
                     CategoryId = 1,
-                    ImageUrl = ""
                 },
                 new FoodItem
                 {
@@ -52,7 +51,6 @@ namespace DeliveryAll.DataAccess.Data
                     Description = "Barbecue sauce, Mozzarella cheese, hunting sausages, pickled cucumber, french fries, ketchup",
                     Price = 159,
                     CategoryId = 1,
-                    ImageUrl = ""
                 },
 				new FoodItem
 				{
@@ -61,7 +59,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "Cream Sauce, mozzarella, ham, bacon, parmesan cheese, egg yolk",
 					Price = 149,
 					CategoryId = 1,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -70,7 +67,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "Signature sauce, mozzarella, tomatoes",
 					Price = 120,
 					CategoryId = 1,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -79,7 +75,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "Soy BBQ, mozzarella, ham, bacon, hunting sausages, onions, tomatoes",
 					Price = 150,
 					CategoryId = 1,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -88,7 +83,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "Signature sauce, mozzarella, pepperoni, tomatoes",
 					Price = 179,
 					CategoryId = 1,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -97,7 +91,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "0,5l",
 					Price = 23,
 					CategoryId = 2,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -106,7 +99,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "0,5l",
 					Price = 23,
 					CategoryId = 2,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -115,7 +107,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "0,5l",
 					Price = 23,
 					CategoryId = 2,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -124,7 +115,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "1l",
 					Price = 62,
 					CategoryId = 2,
-					ImageUrl = ""
 				},
 				new FoodItem
 				{
@@ -133,16 +123,6 @@ namespace DeliveryAll.DataAccess.Data
 					Description = "1l",
 					Price = 62,
 					CategoryId = 2,
-					ImageUrl = ""
-				},
-				new FoodItem
-				{
-					Id = 13,
-					Name = "TOMATO JUICE",
-					Description = "1l",
-					Price = 62,
-					CategoryId = 2,
-					ImageUrl = ""
 				}
 				);
         }

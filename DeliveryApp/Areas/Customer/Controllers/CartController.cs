@@ -34,9 +34,11 @@ namespace DeliveryApp.Areas.Customer.Controllers
                 includeProperties: "FoodItem"),
                 OrderHeader = new()
             };
+            IEnumerable<FoodItemImage> foodItemImages = _unitOfWork.FoodItemImage.GetAll();
             
             foreach (var cart in CartVM.CartList)
             {
+                cart.FoodItem.FoodItemImages = foodItemImages.Where(u => u.FoodItemId == cart.FoodItem.Id).ToList();
                 cart.Price = cart.FoodItem.Price;
                 CartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
             }

@@ -14,6 +14,7 @@ namespace DeliveryAll.DataAccess.Repository
 		public IApplicationUserRepository ApplicationUser { get; private set; }
 		public IOrderHeaderRepository OrderHeader { get; private set; }
 		public IOrderDetailRepository OrderDetail { get; private set; }
+		public IFoodItemImageRepository FoodItemImage { get; private set; }
 
 
         public UnitOfWork(ApplicationDbContext db)
@@ -25,6 +26,7 @@ namespace DeliveryAll.DataAccess.Repository
 			FoodItem = new FoodItemrepository(_db);
 			OrderHeader = new OrderHeaderRepository(_db);
 			OrderDetail = new OrderDetailRepository(_db);
+			FoodItemImage = new FoodItemImageRepository(_db);
 		}
 
 		public void Save()

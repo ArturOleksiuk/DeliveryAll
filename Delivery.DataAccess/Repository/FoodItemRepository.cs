@@ -23,10 +23,11 @@ namespace DeliveryAll.DataAccess.Repository
 				objFromdb.Description = obj.Description;
 				objFromdb.Price = obj.Price;
 				objFromdb.CategoryId = obj.CategoryId;
-				if(obj.ImageUrl != null)
-				{
-					objFromdb.ImageUrl = obj.ImageUrl;
-				}
+				objFromdb.FoodItemImages = obj.FoodItemImages;
+				//if(obj.ImageUrl != null)
+				//{
+				//	objFromdb.ImageUrl = obj.ImageUrl;
+				//}
 			}
 		}
 	}

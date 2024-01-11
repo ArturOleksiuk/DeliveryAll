@@ -24,6 +24,7 @@ namespace DeliveryAll.Models
 		[ValidateNever]
 		public Category category { get; set; }
         [ValidateNever]
-        public string ImageUrl {  get; set; }
+        public List<FoodItemImage>  FoodItemImages { get; set; }    
+
     }
 }
